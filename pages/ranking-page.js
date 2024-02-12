@@ -14,22 +14,22 @@ const dummyDatas =
         "items": [
           {
             "id": "31aeee20-3635-4f05-b4c9-74c0daaaef44",
-            "name": "test1",
+            "name": "dtest1",
             "price": 150
           },
           {
             "id": "156c9104-50f7-4869-9844-55b55858ca5f",
-            "name": "test4",
+            "name": "dtest4",
             "price": 250
           },
           {
             "id": "b3376332-3ccf-4741-995e-0b429ab17823",
-            "name": "test2",
+            "name": "dtest2",
             "price": 300
           },
           {
             "id": "3c716a01-8ad5-4e53-b466-e55794aede3f",
-            "name": "test3",
+            "name": "dtest3",
             "price": 150
           }
         ]
