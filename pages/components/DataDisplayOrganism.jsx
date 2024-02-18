@@ -20,7 +20,7 @@ const DataDisplayOrganism = (props) => {
     }
 
 
-    const stockDatasGroupedByNames = props.stockDatas.reduce((acc, stockData) => {
+    const stockDatasGroupedByNames = props.stockDatas ? props.stockDatas.reduce((acc, stockData) => {
         const { name } = stockData
         if (!acc[name]) {
             acc[name] = []
@@ -28,7 +28,7 @@ const DataDisplayOrganism = (props) => {
         acc[name].push(stockData)
         acc[name].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
         return acc
-    }, {})
+    }, {}) : {}
 
     const latestStockDatas = Object.values(stockDatasGroupedByNames).map(stockDatasGroupedByName => {
         return stockDatasGroupedByName.reduce((latest, current) => {
@@ -115,7 +115,7 @@ const DataDisplayOrganism = (props) => {
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '100%', height: '100%' }}>
             <div style={{ width: '45%' }}>
                 <Table
-                    rows={rows}
+                    rows={rows || []}
                     columns={columns}
                     handleRowClick={handleRowClick}
                 />
