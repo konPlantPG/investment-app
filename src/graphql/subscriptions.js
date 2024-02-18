@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreatePOST = /* GraphQL */ `
-  subscription OnCreatePOST($filter: ModelSubscriptionPOSTFilterInput) {
-    onCreatePOST(filter: $filter) {
+export const onCreateStock = /* GraphQL */ `
+  subscription OnCreateStock($filter: ModelSubscriptionStockFilterInput) {
+    onCreateStock(filter: $filter) {
       id
       name
       price
@@ -14,9 +14,9 @@ export const onCreatePOST = /* GraphQL */ `
     }
   }
 `;
-export const onUpdatePOST = /* GraphQL */ `
-  subscription OnUpdatePOST($filter: ModelSubscriptionPOSTFilterInput) {
-    onUpdatePOST(filter: $filter) {
+export const onUpdateStock = /* GraphQL */ `
+  subscription OnUpdateStock($filter: ModelSubscriptionStockFilterInput) {
+    onUpdateStock(filter: $filter) {
       id
       name
       price
@@ -27,9 +27,9 @@ export const onUpdatePOST = /* GraphQL */ `
     }
   }
 `;
-export const onDeletePOST = /* GraphQL */ `
-  subscription OnDeletePOST($filter: ModelSubscriptionPOSTFilterInput) {
-    onDeletePOST(filter: $filter) {
+export const onDeleteStock = /* GraphQL */ `
+  subscription OnDeleteStock($filter: ModelSubscriptionStockFilterInput) {
+    onDeleteStock(filter: $filter) {
       id
       name
       price

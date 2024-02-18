@@ -1,12 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createPOST = /* GraphQL */ `
-  mutation CreatePOST(
-    $input: CreatePOSTInput!
-    $condition: ModelPOSTConditionInput
+export const createStock = /* GraphQL */ `
+  mutation CreateStock(
+    $input: CreateStockInput!
+    $condition: ModelStockConditionInput
   ) {
-    createPOST(input: $input, condition: $condition) {
+    createStock(input: $input, condition: $condition) {
       id
       name
       price
@@ -17,12 +17,12 @@ export const createPOST = /* GraphQL */ `
     }
   }
 `;
-export const updatePOST = /* GraphQL */ `
-  mutation UpdatePOST(
-    $input: UpdatePOSTInput!
-    $condition: ModelPOSTConditionInput
+export const updateStock = /* GraphQL */ `
+  mutation UpdateStock(
+    $input: UpdateStockInput!
+    $condition: ModelStockConditionInput
   ) {
-    updatePOST(input: $input, condition: $condition) {
+    updateStock(input: $input, condition: $condition) {
       id
       name
       price
@@ -33,12 +33,12 @@ export const updatePOST = /* GraphQL */ `
     }
   }
 `;
-export const deletePOST = /* GraphQL */ `
-  mutation DeletePOST(
-    $input: DeletePOSTInput!
-    $condition: ModelPOSTConditionInput
+export const deleteStock = /* GraphQL */ `
+  mutation DeleteStock(
+    $input: DeleteStockInput!
+    $condition: ModelStockConditionInput
   ) {
-    deletePOST(input: $input, condition: $condition) {
+    deleteStock(input: $input, condition: $condition) {
       id
       name
       price

@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getPOST = /* GraphQL */ `
-  query GetPOST($id: ID!) {
-    getPOST(id: $id) {
+export const getStock = /* GraphQL */ `
+  query GetStock($id: ID!) {
+    getStock(id: $id) {
       id
       name
       price
@@ -14,13 +14,13 @@ export const getPOST = /* GraphQL */ `
     }
   }
 `;
-export const listPOSTS = /* GraphQL */ `
-  query ListPOSTS(
-    $filter: ModelPOSTFilterInput
+export const listStocks = /* GraphQL */ `
+  query ListStocks(
+    $filter: ModelStockFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPOSTS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listStocks(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
