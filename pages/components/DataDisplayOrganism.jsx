@@ -8,8 +8,20 @@ const DataDisplayOrganism = (props) => {
 
     const [selectedName, setSelectedName] = useState('')
 
-    const groupedByNames = props.stockDatas.reduce((acc, stockData) => {
-        const { name, createdAt, price } = stockData
+    const columns = [
+        { field: 'name', headerName: '名前', width: 300 },
+        { field: 'price', headerName: '株価', width: 150 },
+        { field: 'dividend', headerName: '分配金', width: 150 },
+        { field: 'dividendYield', headerName: '分配利回り (%)', width: 150 },
+    ]
+
+    const handleRowClick = (params) => {
+        setSelectedName(params.row.name)
+    }
+
+
+    const stockDatasGroupedByNames = props.stockDatas.reduce((acc, stockData) => {
+        const { name } = stockData
         if (!acc[name]) {
             acc[name] = []
         }
@@ -18,8 +30,8 @@ const DataDisplayOrganism = (props) => {
         return acc
     }, {})
 
-    const latestStockDatas = Object.values(groupedByNames).map(group => {
-        return group.reduce((latest, current) => {
+    const latestStockDatas = Object.values(stockDatasGroupedByNames).map(stockDatasGroupedByName => {
+        return stockDatasGroupedByName.reduce((latest, current) => {
             return new Date(latest.createdAt) > new Date(current.createdAt) ? latest : current
         })
     })
@@ -39,24 +51,13 @@ const DataDisplayOrganism = (props) => {
         return yieldB - yieldA
     })
 
-
-    const columns = [
-        { field: 'name', headerName: '名前', width: 300 },
-        { field: 'price', headerName: '株価', width: 150 },
-        { field: 'dividend', headerName: '分配金', width: 150 },
-        { field: 'dividendYield', headerName: '分配利回り (%)', width: 150 },
-    ]
-
-    const handleRowClick = (params) => {
-        setSelectedName(params.row.name)
-    }
-
-    const nameOptions = Object.keys(groupedByNames).map(name => (
+   
+    const nameOptions = Object.keys(stockDatasGroupedByNames).map(name => (
         <option key={name} value={name}>{name}</option>
     ))
 
 
-    const filteredDatasets = selectedName ? [groupedByNames[selectedName]].map((data, index) => {
+    const selectedStackDatas = selectedName ? [stockDatasGroupedByNames[selectedName]].map((data, index) => {
         const color = `hsl(${index * 60}, 70%, 70%)`
         return {
             label: selectedName,
@@ -69,7 +70,7 @@ const DataDisplayOrganism = (props) => {
     
     let yMin, yMax
     if (selectedName) {
-        const selectedPrices = groupedByNames[selectedName].map(d => d.price)
+        const selectedPrices = stockDatasGroupedByNames[selectedName].map(d => d.price)
         const minPrice = Math.min(...selectedPrices)
         const maxPrice = Math.max(...selectedPrices)
         yMin = Math.round(minPrice - (minPrice * 0.1))
@@ -80,7 +81,7 @@ const DataDisplayOrganism = (props) => {
     }
 
     const data = {
-        datasets: selectedName ? filteredDatasets : []
+        datasets: selectedName ? selectedStackDatas : []
     }
 
     const options = {
@@ -90,7 +91,6 @@ const DataDisplayOrganism = (props) => {
                 time: {
                     parser: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'',
                     unit: 'day',
-                    stepSize: 3,
                     displayFormats: {
                         day: 'MM-dd'
                     }
