@@ -7,11 +7,10 @@ const LineChart = (props) => {
 
     return (
         <>
-            <select value={props.selectedName} onChange={(e) => props.setSelectedName(e.target.value)}>
-                <option value="">Select a name</option>
-                {props.nameOptions}
-            </select>
-            <Line data={props.data} options={props.options} />
+            <Line 
+                data={props.data} 
+                options={props.options} 
+            />
         </>
     )
 }

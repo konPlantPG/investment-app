@@ -13,10 +13,43 @@ const DataDisplayOrganism = (props) => {
         if (!acc[name]) {
             acc[name] = []
         }
-        acc[name].push({ createdAt, price })
+        acc[name].push(stockData)
         acc[name].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
         return acc
     }, {})
+
+    const latestStockDatas = Object.values(groupedByNames).map(group => {
+        return group.reduce((latest, current) => {
+            return new Date(latest.createdAt) > new Date(current.createdAt) ? latest : current
+        })
+    })
+
+    const rows = latestStockDatas.map((latestStockData, index) => ({
+        id: index,
+        name: latestStockData.name,
+        price: latestStockData.price,
+        dividend: latestStockData.dividend,
+        createdAt: latestStockData.createdAt,
+        dividendYield: latestStockData.dividend && latestStockData.price ? ((latestStockData.dividend / latestStockData.price) * 100).toFixed(2) : "N/A"
+    }))
+
+    rows.sort((a, b) => {
+        let yieldA = a.dividendYield === "N/A" ? -1 : parseFloat(a.dividendYield)
+        let yieldB = b.dividendYield === "N/A" ? -1 : parseFloat(b.dividendYield)
+        return yieldB - yieldA
+    })
+
+
+    const columns = [
+        { field: 'name', headerName: '名前', width: 300 },
+        { field: 'price', headerName: '株価', width: 150 },
+        { field: 'dividend', headerName: '分配金', width: 150 },
+        { field: 'dividendYield', headerName: '分配利回り (%)', width: 150 },
+    ]
+
+    const handleRowClick = (params) => {
+        setSelectedName(params.row.name)
+    }
 
     const nameOptions = Object.keys(groupedByNames).map(name => (
         <option key={name} value={name}>{name}</option>
@@ -39,10 +72,10 @@ const DataDisplayOrganism = (props) => {
         const selectedPrices = groupedByNames[selectedName].map(d => d.price)
         const minPrice = Math.min(...selectedPrices)
         const maxPrice = Math.max(...selectedPrices)
-        yMin = minPrice - (minPrice * 0.01) // 最小値の10%マイナス
-        yMax = maxPrice + (maxPrice * 0.01) // 最大値の10%プラス
+        yMin = Math.round(minPrice - (minPrice * 0.1))
+        yMax = Math.round(maxPrice + (maxPrice * 0.1))
     } else {
-        yMin = undefined // 選択されていない場合は、自動的に決定させる
+        yMin = undefined 
         yMax = undefined
     }
 
@@ -57,8 +90,9 @@ const DataDisplayOrganism = (props) => {
                 time: {
                     parser: 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'',
                     unit: 'day',
+                    stepSize: 3,
                     displayFormats: {
-                        day: 'yyyy-MM-dd'
+                        day: 'MM-dd'
                     }
                 },
                 title: {
@@ -68,8 +102,8 @@ const DataDisplayOrganism = (props) => {
             },
             y: {
                 beginAtZero: false,
-                min: yMin, // 計算した最小値
-                max: yMax, // 計算した最大値
+                min: yMin,
+                max: yMax,
                 title: {
                     display: true,
                     text: 'Price'
@@ -79,12 +113,14 @@ const DataDisplayOrganism = (props) => {
     }
     return (
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '100%', height: '100%' }}>
-            <div style={{ width: '50%' }}>
+            <div style={{ width: '45%' }}>
                 <Table
-                    stockDatas={props.stockDatas}
+                    rows={rows}
+                    columns={columns}
+                    handleRowClick={handleRowClick}
                 />
             </div>
-            <div style={{ width: '50%' }}>
+            <div style={{ width: '45%' }}>
                 <LineChart
                     selectedName = {selectedName}
                     setSelectedName = {setSelectedName}
