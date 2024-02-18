@@ -122,9 +122,6 @@ const DataDisplayOrganism = (props) => {
             </div>
             <div style={{ width: '45%' }}>
                 <LineChart
-                    selectedName = {selectedName}
-                    setSelectedName = {setSelectedName}
-                    nameOptions = {nameOptions}
                     data = {data}
                     options = {options}
                 />
