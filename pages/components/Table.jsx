@@ -5,7 +5,7 @@ const Table = (props) => {
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid
                 columns={props.columns|| []}
-                rows={props.rows}
+                rows={props.rows || []}
                 onRowClick={props.handleRowClick}
             />
         </div>
