@@ -142,18 +142,18 @@ const DataDisplayOrganism = (props) => {
     }, [yMin, yMax])
     
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', width: '100%', height: '100%' }}>
-            <div style={{ width: '45%' }}>
+        <div class="flex ... px-4">
+            <div class="flex w-1/2 ...">
                 <Table
                     rows={rows || []}
                     columns={columns}
                     handleRowClick={handleRowClick}
                 />
             </div>
-            <div style={{ width: '45%' }}>
+            <div class="flex w-1/2 ...">
                 <LineChart
-                    data = {data}
-                    options = {options}
+                    data={data}
+                    options={options}
                 />
             </div>
         </div>
