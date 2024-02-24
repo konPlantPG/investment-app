@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "api": {
+      "investmentapp": [
+        "Query",
+        "Mutation"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "secretNames": [
+    "scrapingAPIkey"
+  ]
+}

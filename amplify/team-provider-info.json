@@ -28,7 +28,7 @@
         "investmentAppScraping": {
           "secretsPathAmplifyAppId": "d1vxg0zoqiv4t9",
           "deploymentBucketName": "amplify-investmentapp-dev-232105-deployment",
-          "s3Key": "amplify-builds/investmentAppScraping-475759686f4369466451-build.zip"
+          "s3Key": "amplify-builds/investmentAppScraping-2f317161727676573463-build.zip"
         }
       }
     }
