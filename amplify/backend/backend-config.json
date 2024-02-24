@@ -45,6 +45,24 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "investmentAppScraping": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "investmentapp"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "providerPlugin": "awscloudformation",
@@ -53,6 +71,30 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_investmentAppScraping_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "investmentAppScraping"
+        }
+      ]
+    },
+    "AMPLIFY_function_investmentAppScraping_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "investmentAppScraping"
+        }
+      ]
+    },
+    "AMPLIFY_function_investmentAppScraping_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "investmentAppScraping"
+        }
+      ]
+    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {

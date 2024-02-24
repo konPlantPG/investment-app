@@ -57,3 +57,5 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+venv/
+amplify/backend/function/investmentAppScraping/src/stockData/data_j.xls
