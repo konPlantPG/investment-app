@@ -1,11 +1,12 @@
 # 変更する
 import json
-from hogeho import hogehoge
+from stockData import collect_stock_datas
+
 
 def handler(event, context):
   print('received event:')
   print(event)
-  hogehoge.hogehote()   
+  collect_stock_datas.test()   
   return {
       'statusCode': 200,
       'headers': {
