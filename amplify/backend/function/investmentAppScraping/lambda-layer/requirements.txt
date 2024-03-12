@@ -1,0 +1,5 @@
+testresources
+yfinance
+urllib3<2
+xlrd>=2.0.1
+tqdm
