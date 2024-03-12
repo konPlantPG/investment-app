@@ -17,7 +17,7 @@ export const getStock = /* GraphQL */ `
 export const listStocks = /* GraphQL */ `
   query ListStocks(
     $filter: ModelStockFilterInput
-    $limit: Int
+    $limit: Int = 10000
     $nextToken: String
   ) {
     listStocks(filter: $filter, limit: $limit, nextToken: $nextToken) {

@@ -7,10 +7,11 @@ const LineChart = (props) => {
 
     return (
         <>
-            {props.data && <Line 
-                data={props.data} 
-                options={props.options} 
-            />}
+            {props.data && 
+                <Line 
+                    data={props.data} 
+                    options={props.options} 
+                />}
         </>
     )
 }
