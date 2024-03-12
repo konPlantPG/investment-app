@@ -6,6 +6,6 @@ type Stock @model {
   id: ID!
   name: String!
   price: Float
-  dividend: Float
+  dividend: Int
   createdAt: AWSDateTime!
 }
