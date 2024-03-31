@@ -4,20 +4,18 @@ import { useRouter } from 'next/router';
 const Header = () => {
   const router = useRouter();
 
-  // リンクのスタイルを更新: テキストの色を黒に設定
   const linkStyle = {
     marginRight: 100,
     textDecoration: "none",
     color: 'black', // 色を黒に変更
   };
 
-  // ヘッダーのスタイルを更新: コンテンツを中央に配置
   const headerStyle = {
     backgroundColor: '#49CDBD',
     padding: '40px',
-    display: 'flex', // フレックスボックスを使用
-    justifyContent: 'center', // 水平方向の中央に配置
-    alignItems: 'center', // 垂直方向の中央に配置
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
   };
 
   return (
