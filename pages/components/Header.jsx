@@ -7,7 +7,7 @@ const Header = () => {
   const linkStyle = {
     marginRight: 100,
     textDecoration: "none",
-    color: 'black', // 色を黒に変更
+    color: 'black',
   };
 
   const headerStyle = {
