@@ -7,6 +7,7 @@ import Header from "./components/Header";
 
 const RankingPage= () => {
   const[ stockDatas, setStockDatas ] = useState([])
+  
 
   const fetchStocks = () => {
     API.graphql({

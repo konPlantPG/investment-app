@@ -4,8 +4,8 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONL
 
 type Stock @model {
   id: ID!
-  name: String!
+  name: String! @index(name: "stockByName", sortKeyFields: ["createdAt"], queryField: "stockByName")
   price: Float
-  dividend: Int
+  dividend: Float
   createdAt: AWSDateTime!
 }

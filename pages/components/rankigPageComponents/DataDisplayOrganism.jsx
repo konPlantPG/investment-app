@@ -73,7 +73,6 @@ const DataDisplayOrganism = (props) => {
             })
         })
         setLatestStockDatas(latestDatas)
-
     }, [props.stockDatas])
 
     useEffect(() => {
@@ -142,20 +141,12 @@ const DataDisplayOrganism = (props) => {
     }, [yMin, yMax])
     
     return (
-        <div class="flex ... px-4">
-            <div class="flex w-1/2 ...">
+        <div class="flex ... px-4">  
                 <Table
                     rows={rows || []}
                     columns={columns}
                     handleRowClick={handleRowClick}
                 />
-            </div>
-            <div class="flex w-1/2 ...">
-                <LineChart
-                    data={data}
-                    options={options}
-                />
-            </div>
         </div>
     )
 }
