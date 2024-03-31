@@ -6,6 +6,7 @@ import { listStocks } from "@/src/graphql/queries"
 
 const RankingPage= () => {
   const[ stockDatas, setStockDatas ] = useState([])
+  
 
   const fetchStocks = () => {
     API.graphql({
