@@ -17,10 +17,41 @@ export const getStock = /* GraphQL */ `
 export const listStocks = /* GraphQL */ `
   query ListStocks(
     $filter: ModelStockFilterInput
-    $limit: Int = 10000
+    $limit: Int
     $nextToken: String
   ) {
     listStocks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        price
+        dividend
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const stockByName = /* GraphQL */ `
+  query StockByName(
+    $name: String!
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelStockFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    stockByName(
+      name: $name
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
         name
