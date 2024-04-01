@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import RankingTemplate from "./components/RankingTemplate"
 import { API, graphqlOperation, Auth, AuthModeStrategyType } from 'aws-amplify'
-import { listStocks } from "@/src/graphql/queries"
+import { listStocks } from "../src/graphql/queries"
+
 
 
 const RankingPage= () => {

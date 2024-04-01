@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 
 import Table from './Table'
@@ -141,7 +142,7 @@ const DataDisplayOrganism = (props) => {
     }, [yMin, yMax])
     
     return (
-        <div class="flex ... px-4">  
+        <div className="flex ... px-4">  
                 <Table
                     rows={rows || []}
                     columns={columns}

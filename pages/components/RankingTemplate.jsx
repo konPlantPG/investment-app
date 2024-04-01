@@ -1,3 +1,4 @@
+import React from 'react'
 import DataDisplayOrganism from './DataDisplayOrganism'
 
 const RankingTemplate = (props) => {
