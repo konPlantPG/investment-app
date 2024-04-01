@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-import Table from './Table'
-import LineChart from './LineChart'
+import Table from '../molecules/Table'
+import LineChart from '../molecules/LineChart'
 
 
 const DataDisplayOrganism = (props) => {
