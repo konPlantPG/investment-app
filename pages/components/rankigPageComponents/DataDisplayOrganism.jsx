@@ -142,12 +142,12 @@ const DataDisplayOrganism = (props) => {
     }, [yMin, yMax])
     
     return (
-        <div className="flex ... px-4">  
-                <Table
-                    rows={rows || []}
-                    columns={columns}
-                    handleRowClick={handleRowClick}
-                />
+        <div className="flex justify-center px-4">  
+            <Table
+                rows={rows || []}
+                columns={columns}
+                handleRowClick={handleRowClick}
+            />
         </div>
     )
 }

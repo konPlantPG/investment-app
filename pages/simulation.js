@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import Header from './components/Header'
+import SimulationTemplate from './components/simulationComponents/SimulationTemplate'
 
 
 const SimulationPage = () => {
  
   return (
     <>
-      <h1>作成中</h1>
+      <SimulationTemplate/>
     </>
   )
 }
