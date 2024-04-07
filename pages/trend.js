@@ -6,7 +6,6 @@ import Header from './components/Header'
 const TrendPage= () => {
   return (
     <>
-      <Header/>
       <h1>作成中</h1>
     </>
   )
